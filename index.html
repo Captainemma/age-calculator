@@ -50,7 +50,8 @@
         }
         
         button:hover {
-            background-color: #45a049;
+            background-color: rgb(255, 162, 0);
+            color: aliceblue;
         }
         
         #result {
@@ -63,13 +64,14 @@
         
         .age-display {
             font-size: 24px;
-            color: #4CAF50;
+            color: #af4c9e;
             margin-top: 15px;
         }
     </style>
   
 </head>
 <body>
+
     <div class="calculator-container">
         <h1>Age Calculator</h1>
         <p>Enter your date of birth:</p>
@@ -80,7 +82,7 @@
     </div>
 
     <script>
-        // Set max date to today
+      
         document.getElementById('dob').max = new Date().toISOString().split('T')[0];
         
         function calculateAge() {
@@ -95,7 +97,7 @@
             const dob = new Date(dobInput);
             const today = new Date();
             
-            // Check if the date is in the future
+          
             if (dob > today) {
                 document.getElementById('result').textContent = 'Date of birth cannot be in the future';
                 document.getElementById('age').textContent = '';
@@ -105,18 +107,18 @@
             let age = today.getFullYear() - dob.getFullYear();
             const monthDiff = today.getMonth() - dob.getMonth();
             
-            // If birthday hasn't occurred yet this year, subtract 1 from age
+         
             if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < dob.getDate())) {
                 age--;
             }
             
-            // Calculate months and days if you want more precise age
+        
             let months = today.getMonth() - dob.getMonth();
             let days = today.getDate() - dob.getDate();
             
             if (days < 0) {
                 months--;
-                // Get the last day of the previous month
+               
                 const lastMonth = new Date(today.getFullYear(), today.getMonth(), 0);
                 days += lastMonth.getDate();
             }
